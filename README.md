@@ -3,6 +3,29 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## My approach
+
+At first I coded Twiddle algorithm, then spent time debugging but, I understood that what will benefit me more, is investing time in seeing the effects instead of coding.
+
+So I stashed all the code, wrote again basic PID functions and started trying values by hand. Here is what I learnt.
+
+## Understanding the PID parameters in practice
+
+# P parameter
+Instant proportional. You need the car to steer, so, why not to initialize this to 1 anyway?
+Well... You need to control how much is your response, apart from non-existent infinite energy in any system out of blackboards, the car response can be too quick and steer out of control the car easily.
+Also, a P controller will tend to wooble a lot, and the bigger the parameter, the more violent the wooble will be (if you are lucky and dont exit the road!!!). Hence I lowered to 0.13 just by trial error.
+
+# D parameter
+
+Basically acts as damper. If we had too movement at last evaluation, add a dampering factor. If you were woobling too much, just decrease steering angle. We have to adjust very well, a too high number will prevent the car to take sharp curves since dampening will be too big.
+I set at 0.000135.
+
+# I parameter
+
+If you set to zero, car tends to have a bias. Tends to go straight but not in the lane center, that is because P-D errors achieve some equilibrium. To correct this, we have a parameter that sums up the error, to create a bigger one so in the long term the car will act.
+This parameter has to be comparatively bigger to converge quickly. If not we can go out of the road at the next turn.
+
 ## Dependencies
 
 * cmake >= 3.5

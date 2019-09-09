@@ -2,3 +2,7 @@
 build
 tags
 .editorconfig
+/.vs/CarND-PID-Control-Project/v16/Browse.VC.opendb
+/.vs/ProjectSettings.json
+/.vs/CarND-PID-Control-Project/v16/Browse.VC.db
+/.vs
